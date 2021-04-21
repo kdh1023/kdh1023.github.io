@@ -33,7 +33,7 @@ function drawCircle(objId, startCnt, endCnt) {
   }
 
   $('#'+objId+startCnt).circleProgress({
-    value: 1, size: 80, animation: { duration: 3000 }, fill: { gradient: ["red", "orange"] }
+    value: 1, size: 80, animation: { duration: 2000 }, fill: { gradient: ["red", "orange"] }
   }).on('circle-animation-end', function(event) {
     drawCircle(objId, ++startCnt, endCnt);
   });
