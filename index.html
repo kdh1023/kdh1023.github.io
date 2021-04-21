@@ -11,6 +11,12 @@
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
+<style type="text/css">
+  .show{display: block;}
+  .hide{display: none;}
+  .circle-wrap img{position: relative; float: left; width: 80px; height: 80px;}
+</style>
+  
 <script>
 $(document).ready(function(){
   /*$.ajax({
@@ -35,6 +41,8 @@ function drawCircle(objId, startCnt, endCnt) {
   $('#'+objId+startCnt).circleProgress({
     value: 1, size: 80, animation: { duration: 2000 }, fill: { gradient: ["red", "orange"] }
   }).on('circle-animation-end', function(event) {
+    $('#circle'+startCnt).toggleClass('hide');
+    $('#img'+startCnt).toggleClass('show hide');
     drawCircle(objId, ++startCnt, endCnt);
   });
 }
@@ -43,9 +51,18 @@ function drawCircle(objId, startCnt, endCnt) {
 </head>
 
 <html>
-<div>
-  <span id="circle1"></span>
-  <span id="circle2"></span>
-  <span id="circle3"></span>
-</div>
+  <div class="circle-wrap">
+    <span>
+      <span id="circle1"></span>
+      <span><img src="./img/succ.png" id="img1" class="hide"/></span>
+    </span>
+    <span>
+      <span id="circle2"></span>
+      <span><img src="./img/succ.png" id="img2" class="hide"/></span>
+    </span>
+    <span>
+      <span id="circle3"></span>
+      <span><img src="./img/succ.png" id="img3" class="hide"/></span>
+    </span>
+  </div>
 </html>
